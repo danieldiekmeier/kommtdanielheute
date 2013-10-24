@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Kommt Daniel heute?</title>
+
+		<link href="{{ url_for('static', filename='stylesheets/style.css') }}" media="screen, projection" rel="stylesheet" type="text/css" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:900' rel='stylesheet' type='text/css'>
+
+	</head>
+	<body>
+		{% block body %}{% endblock %}
+
+		<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+
+		currently using local jquery-->
+		<script type="text/javascript" src="{{ url_for('static', filename='javascripts/jquery.js') }}"></script>
+
+	</body>
+</html>
