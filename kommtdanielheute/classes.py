@@ -25,6 +25,7 @@ class Day:
 		else:
 			self.will_come = False
 			self.datetime = arrow.get( date )
+			print self.datetime
 		return None
 
 	def __str__(self):
@@ -34,3 +35,6 @@ class Day:
 
 	def weekday(self):
 		return self.datetime.isoweekday()
+	def weekdayname(self):
+		weekdaynames = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag']
+		return weekdaynames[self.datetime.weekday()]

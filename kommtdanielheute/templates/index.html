@@ -22,12 +22,11 @@
 				{% for day in forecast[1:] %}
 					<div class="cell {{ 'weekend' if day.weekday() == 6 or day.weekday() == 7 }}">
 						<img src="{{ url_for('static', filename='images/'+ ('Ja' if day.will_come else 'Nein') +'.svg') }}" alt="{{ 'Ja' if day.will_come else 'Nein' }}">
+						<h2></h2>
 						{% if day.will_come %}
-							<h2>~ {{ day.datetime.format('HH:mm') }}</h2>
-						{% elif day.weekday() == 6 or day.weekday() == 7 %}
-							<h2>
-							{{ 'Samstag' if day.weekday() == 6 else 'Sonntag' }}
-							</h2>
+							<h2>{{ day.weekdayname() }}: ~{{ day.datetime.format('HH:mm') }}</h2>
+						{% else %}
+							<h2>{{ day.weekdayname() }}</h2>
 						{% endif %}
 					</div>
 					{% if loop.index == 3 %}
