@@ -18,7 +18,7 @@ class Day:
 
 		day = query_db('SELECT * FROM forecast WHERE date = ?', [date], one=True)
 		if day:
-			self.will_come = bool(day['will_come'])
+			self.will_come = True
 			self.time = day['time']
 
 			self.datetime = arrow.get( day['date']+' '+day['time']+'+02:00', 'YYYY-MM-DD HH:mmZZ')
