@@ -34,19 +34,22 @@
 		top: -0.66em
 		width: 100%
 		z-index: 50
+		@media #{$break480}
+			display: none
 
 .forecast
 	background-color: #333
 	padding-top: 4vw
 	padding-bottom: 4vw
 	.grid
+		padding-top: 2vw
 		.row
 			display: -webkit-box
 			display: -webkit-flex
 			display: -moz-box
 			display: -ms-flexbox
 			display: flex
-			margin-top: 4vw
+			margin-top: 2vw
 			.cell
 				-webkit-box-flex: 1
 				-webkit-flex: 1
@@ -54,7 +57,7 @@
 				-ms-flex: 1
 				flex: 1
 
-				margin-right: 1em
+				margin-right: 2vw
 				background-color: #fff
 				color: #333
 				padding: 1em

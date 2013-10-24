@@ -38,9 +38,9 @@ body {
   background-color: white;
   color: #333333;
   display: block; }
-  @media only screen and (max-width: 640px) {
+  @media only screen and (max-width: 480px) {
     body {
-      font-size: 16px; } }
+      font-size: 15px; } }
 
 header {
   width: 100%;
@@ -98,39 +98,44 @@ header {
     top: -0.66em;
     width: 100%;
     z-index: 50; }
+    @media only screen and (max-width: 480px) {
+      .divider hr {
+        display: none; } }
 
 .forecast {
   background-color: #333333;
   padding-top: 4vw;
   padding-bottom: 4vw; }
-  .forecast .grid .row {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-top: 4vw; }
-    .forecast .grid .row .cell {
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-      -moz-box-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      margin-right: 1em;
-      background-color: white;
-      color: #333333;
-      padding: 1em;
-      border-radius: 0.25em; }
-      .forecast .grid .row .cell.weekend {
-        opacity: 0.25; }
-      .forecast .grid .row .cell:last-child {
-        margin-right: 0; }
-      .forecast .grid .row .cell img {
-        width: 100%; }
-      .forecast .grid .row .cell h2 {
-        font-weight: normal;
-        text-align: center;
-        font-size: 1em; }
+  .forecast .grid {
+    padding-top: 2vw; }
+    .forecast .grid .row {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      margin-top: 2vw; }
+      .forecast .grid .row .cell {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -moz-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        margin-right: 2vw;
+        background-color: white;
+        color: #333333;
+        padding: 1em;
+        border-radius: 0.25em; }
+        .forecast .grid .row .cell.weekend {
+          opacity: 0.25; }
+        .forecast .grid .row .cell:last-child {
+          margin-right: 0; }
+        .forecast .grid .row .cell img {
+          width: 100%; }
+        .forecast .grid .row .cell h2 {
+          font-weight: normal;
+          text-align: center;
+          font-size: 1em; }
 
 .mail {
   background-color: #e3391e;
