@@ -104,9 +104,17 @@ header {
   padding-top: 4vw;
   padding-bottom: 4vw; }
   .forecast .grid .row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
     margin-top: 4vw; }
     .forecast .grid .row .cell {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -moz-box-flex: 1;
+      -ms-flex: 1;
       flex: 1;
       margin-right: 1em;
       background-color: white;
