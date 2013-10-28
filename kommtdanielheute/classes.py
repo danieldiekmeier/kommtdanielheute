@@ -21,7 +21,7 @@ class Day:
 			self.will_come = True
 			self.time = day['time']
 
-			self.datetime = arrow.get( day['date']+' '+day['time']+'+02:00', 'YYYY-MM-DD HH:mmZZ')
+			self.datetime = arrow.get( day['date']+' '+day['time'], 'YYYY-MM-DD HH:mm').replace(tzinfo='Europe/Berlin')
 		else:
 			self.will_come = False
 			self.datetime = arrow.get( date )
@@ -32,6 +32,9 @@ class Day:
 		return self.will_come
 	def __repr__(self):
 		return self.__str__()
+
+	def humanize(self):
+		return self.datetime.humanize(locale='de')
 
 	def weekday(self):
 		return self.datetime.isoweekday()

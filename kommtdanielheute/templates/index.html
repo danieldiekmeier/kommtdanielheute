@@ -6,7 +6,7 @@
 	<div class="limiter">
 		<h1><img src="{{ url_for('static', filename='images/'+ ('Ja' if forecast[0].will_come else 'Nein') +'.svg') }}" alt="{{ 'Ja' if forecast[0].will_come else 'Nein' }}"></h1>
 		{% if forecast[0].will_come %}
-			<h2>~ {{ forecast[0].datetime.format('HH:mm') }} ({{ forecast[0].datetime.replace().humanize(locale='de') }})</h2>
+			<h2>~ {{ forecast[0].datetime.format('HH:mm') }} ({{ forecast[0].humanize() }})</h2>
 		{% endif %}
 	</div>
 </section>
