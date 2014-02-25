@@ -1,2 +1,2 @@
 from kommtdanielheute import app
-app.run(debug=True, port=1337)
+app.run(debug=True, port=62782)

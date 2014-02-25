@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, jsonify
+from flask import Flask, request, session, g, redirect, abort, render_template, flash, jsonify
+from flask import url_for as flask_url_for
 import sqlite3, datetime
 from contextlib import closing # for database-things
 
@@ -17,6 +18,11 @@ from kommtdanielheute.helpers import *
 from kommtdanielheute.classes import *
 
 app.create_jinja_environment()
+
+def url_for(endpoint, **values):
+	return app.config['APPLICATION_ROOT'] + flask_url_for(endpoint, **values)
+
+app.jinja_env.globals.update(url_for=url_for)
 
 def connect_db():
 	return sqlite3.connect(app.config['DATABASE'])
