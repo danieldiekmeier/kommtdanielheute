@@ -7,7 +7,7 @@ date_format = "%Y-%m-%d"
 def get_forecast(days = 7):
 	date = arrow.now()
 	forecast = []
-	for plus_day in xrange(days):
+	for plus_day in range(days):
 		day = Day( date.replace(days=plus_day).format('YYYY-MM-DD') )
 		forecast.append(day)
 	return forecast
