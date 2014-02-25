@@ -14,8 +14,6 @@ def get_forecast(days = 7):
 
 class Day:
 	def __init__(self, date):
-		print date
-
 		day = query_db('SELECT * FROM forecast WHERE date = ?', [date], one=True)
 		if day:
 			self.will_come = True
@@ -25,7 +23,6 @@ class Day:
 		else:
 			self.will_come = False
 			self.datetime = arrow.get( date )
-			print self.datetime
 		return None
 
 	def __str__(self):
