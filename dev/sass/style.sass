@@ -1,0 +1,109 @@
+$main: #E3391E
+
+*
+	position: relative
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+
+
+body
+	font:
+		family: Helvetica, Arial, sans-serif
+		size: 15px
+
+	color: #444
+
+	background:
+		color: #f3f3f3
+
+
+a
+	color: $main
+	text:
+		decoration: none
+
+
+.limiter
+	width: 100%
+	max-width: 600px
+
+	margin:
+		left: auto
+		right: auto
+
+
+.clearfix, .day
+	&:after
+		content: ''
+		display: table
+		clear: both
+
+
+.box
+	background:
+		color: #fff
+
+	border-radius: 5px
+	overflow: hidden
+
+
+.header
+	padding:
+		top: 2em
+		bottom: 2em
+
+	text:
+		align: center
+
+	h1
+		font:
+			weight: bold
+			size: 3em
+
+		line-height: 1.3em
+		letter-spacing: -1px
+
+
+
+.days
+	list-style: none
+
+.day
+	&:first-child
+		font:
+			size: 2em
+
+	&:nth-child(2n)
+		background:
+			color: #fafafa
+
+	&.Sa, &.Su
+		color: #ddd
+
+.date
+	display: inline-block
+	width: 150px
+	float: left
+	padding: 1em
+
+	border:
+		right: 1px solid #ddd
+
+.duration-container
+	float: left;
+	width: calc(100% - 150px)
+
+.duration
+	position: absolute
+	display: inline-block
+
+	padding: 1em
+
+	background:
+		color: rgba(green, 0.1)
+
+.footer
+	padding: 1em
+	text:
+		align: center

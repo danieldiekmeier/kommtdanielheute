@@ -3,3 +3,5 @@
 *.pyc
 
 /kommtdanielheute/static/.sass-cache/
+node_modules
+public/css/

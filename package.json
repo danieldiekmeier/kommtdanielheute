@@ -1,0 +1,37 @@
+{
+  "name": "kommtdanielheute",
+  "version": "2.0.0",
+  "description": "Kommt Daniel heute?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danieldiekmeier/kommtdanielheute"
+  },
+  "author": "Daniel Diekmeier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danieldiekmeier/kommtdanielheute/issues"
+  },
+  "homepage": "https://github.com/danieldiekmeier/kommtdanielheute",
+  "dependencies": {
+    "express": "^4.12.3",
+    "ical": "^0.4.0",
+    "moment": "^2.10.2",
+    "request": "^2.55.0",
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.6.5",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.2.0",
+    "gulp-jshint": "^1.10.0",
+    "gulp-minify-css": "^1.1.0",
+    "gulp-sass": "^1.3.3",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-watch": "^4.2.4",
+    "jshint-stylish": "^1.0.1"
+  }
+}
