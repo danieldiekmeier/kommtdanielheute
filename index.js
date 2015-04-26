@@ -15,7 +15,7 @@ app.set('views', __dirname + '/templates');
 app.set('view cache', false);
 swig.setDefaults({ cache: false });
 
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 
 app.get('/', function (req, res) {
@@ -54,7 +54,7 @@ app.get('/', function (req, res) {
 });
 
 
-var server = app.listen(5000, function () {
+var server = app.listen(63203, function () {
 
   var host = server.address().address;
   var port = server.address().port;
