@@ -4,8 +4,6 @@ var swig = require('swig');
 var ical = require('ical');
 var moment = require('moment');
 
-var utils = require('./utils');
-
 var url = 'https://www.google.com/calendar/ical/5lbbqnn4nejdarbi983749jv10%40group.calendar.google.com/public/basic.ics';
 
 
