@@ -38,11 +38,14 @@ app.get('/', function (req, res) {
 				var endMoment = moment(ev.end);
 				var key = startMoment.format('YYYY-MM-DD');
 
-				days[key].left = (startMoment.hour() + (startMoment.minute() / 60) - 9) / 9 * 100;
-				days[key].right = -((endMoment.hour() + (endMoment.minute() / 60) - 18) / 9 * 100);
+				if (key in days) {
+					days[key].left = (startMoment.hour() + (startMoment.minute() / 60) - 9) / 9 * 100;
+					days[key].right = -((endMoment.hour() + (endMoment.minute() / 60) - 18) / 9 * 100);
 
-				days[key].start = startMoment;
-				days[key].end = endMoment;
+					days[key].start = startMoment;
+					days[key].end = endMoment;
+				}
+
 			}
 		}
 
