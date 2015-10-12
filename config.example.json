@@ -1,3 +1,8 @@
 {
-  "url": "http://example.com/your-calendar.ics"
+  "default": "daniel",
+  "users": {
+    "daniel": {
+      "url": "http://example.com/calendar.ics"
+    }
+  }
 }

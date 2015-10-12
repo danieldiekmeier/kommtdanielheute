@@ -1,50 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Kommt Daniel heute?</title>
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Kommt {{name|title}} heute?</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-	<div class="header">
-		<div class="limiter">
-			<h1>Kommt Daniel heute?</h1>
-			<p>
-				Auch direkt als <a href="https://www.google.com/calendar/ical/5lbbqnn4nejdarbi983749jv10%40group.calendar.google.com/public/basic.ics">iCal-Feed</a>.
-			</p>
-		</div>
-	</div>
-	<div class="limiter box">
-		<ul class="days">
-			{% for key, day in days %}
-				<li class="day {{ day.moment.format('dd') }}">
-					<div class="date">
-						{% if loop.index == 1 %}
-							Heute
-						{% else %}
-							{{ day.moment.format('dd, DD. MMMM') }}
-						{% endif %}
-					</div>
+  <div class="header">
+    <div class="limiter">
+      <h1>Kommt {{name|title}} heute?</h1>
+      <p>
+        Auch direkt als <a href="{{ url }}">iCal-Feed</a>.
+      </p>
+    </div>
+  </div>
 
-					<div class="duration-container">
-						{% if day.start and day.end %}
-							<div class="duration" style="left: {{ day.left }}%; right: {{ day.right }}%;">
-								{{ day.start.format('HH:mm') }} –
-								{{ day.end.format('HH:mm') }}
-							</div>
-						{% endif %}
-					</div>
+  <div class="limiter box">
+    <ul class="days">
+      {% for key, day in days %}
+        <li class="day {{ day.moment.format('dd') }}">
+          <div class="date">
+            {% if loop.index == 1 %}
+              Heute
+            {% else %}
+              {{ day.moment.format('dd, DD. MMMM') }}
+            {% endif %}
+          </div>
 
-				</li>
-			{% endfor %}
-		</ul>
-	</div>
+          <div class="duration-container">
+            {% if day.start and day.end %}
+              <div class="duration" style="left: {{ day.left }}%; right: {{ day.right }}%;">
+                {{ day.start.format('HH:mm') }} –
+                {{ day.end.format('HH:mm') }}
+              </div>
+            {% endif %}
+          </div>
 
-	<div class="footer">
-		<div class="limiter">
-			Von und über <a href="http://danieldiekmeier.de">Daniel Diekmeier</a>.
-		</div>
-	</div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="footer">
+    <div class="limiter">
+      Von und über <a href="http://danieldiekmeier.de">Daniel Diekmeier</a>.
+    </div>
+  </div>
 
 </body>
 </html>

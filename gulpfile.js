@@ -1,22 +1,22 @@
-var gulp         = require('gulp');
-var watch        = require('gulp-watch');
-var sass         = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var minifyCSS    = require('gulp-minify-css');
-var browserSync  = require('browser-sync');
-var reload       = browserSync.reload;
-var jshint       = require('gulp-jshint');
-var sourcemaps   = require('gulp-sourcemaps');
+var gulp = require('gulp')
+var watch = require('gulp-watch')
+var sass = require('gulp-sass')
+var autoprefixer = require('gulp-autoprefixer')
+var minifyCSS = require('gulp-minify-css')
+var browserSync = require('browser-sync')
+var reload = browserSync.reload
+var jshint = require('gulp-jshint')
+var sourcemaps = require('gulp-sourcemaps')
 
 
-gulp.task('default', ['sass', 'serve']);
+gulp.task('default', ['sass', 'serve'])
 
 
 gulp.task('lint', function() {
   return gulp.src('./*.js')
     .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'));
-});
+    .pipe(jshint.reporter('jshint-stylish'))
+})
 
 
 gulp.task('sass', function() {
@@ -30,8 +30,9 @@ gulp.task('sass', function() {
     .pipe(minifyCSS())
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('./public/css'))
-    .pipe(reload({ stream:true }));
-});
+    .pipe(reload({ stream:true }))
+})
+
 
 gulp.task('serve', function() {
   browserSync({
@@ -39,12 +40,12 @@ gulp.task('serve', function() {
     notify: false,
     open:   false,
     port:   3000
-  });
+  })
 
-  watch(['./templates/*.html'], reload);
+  watch(['./templates/*.html'], reload)
 
   watch(['./dev/sass/*.sass'], function() {
-    gulp.start('sass');
-  });
+    gulp.start('sass')
+  })
 
-});
+})
