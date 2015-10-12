@@ -9,42 +9,42 @@ var jshint       = require('gulp-jshint');
 var sourcemaps   = require('gulp-sourcemaps');
 
 
-gulp.task('default', ['sass', 'scripts', 'serve']);
+gulp.task('default', ['sass', 'serve']);
 
 
 gulp.task('lint', function() {
-	return gulp.src('./*.js')
-		.pipe(jshint())
-		.pipe(jshint.reporter('jshint-stylish'));
+  return gulp.src('./*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('jshint-stylish'));
 });
 
 
 gulp.task('sass', function() {
-	return gulp.src(['./dev/sass/style.sass'])
-		.pipe(sourcemaps.init())
-		.pipe(sass({indentedSyntax: true}))
-		.pipe(autoprefixer({
-			browsers: ['last 2 versions'],
-			cascade: false
-		}))
-		.pipe(minifyCSS())
-		.pipe(sourcemaps.write('./maps'))
-		.pipe(gulp.dest('./public/css'))
-		.pipe(reload({ stream:true }));
+  return gulp.src(['./dev/sass/style.sass'])
+    .pipe(sourcemaps.init())
+    .pipe(sass({indentedSyntax: true}))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
+    .pipe(minifyCSS())
+    .pipe(sourcemaps.write('./maps'))
+    .pipe(gulp.dest('./public/css'))
+    .pipe(reload({ stream:true }));
 });
 
 gulp.task('serve', function() {
-	browserSync({
-		proxy:  'localhost:63203',
-		notify: false,
-		open:   false,
-		port:   3000
-	});
+  browserSync({
+    proxy:  'localhost:63203',
+    notify: false,
+    open:   false,
+    port:   3000
+  });
 
-	watch(['./templates/*.html'], reload);
+  watch(['./templates/*.html'], reload);
 
-	watch(['./dev/sass/*.sass'], function() {
-		gulp.start('sass');
-	});
+  watch(['./dev/sass/*.sass'], function() {
+    gulp.start('sass');
+  });
 
 });
