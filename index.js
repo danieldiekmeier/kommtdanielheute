@@ -34,6 +34,12 @@ app.get('/:name', function (req, res) {
 
 })
 
+function getDatetime(dateString) {
+  if (dateString.indexOf('":') !== -1) {
+    dateString = dateString.split('":')[1]
+  }
+  return moment(dateString, 'YYYYMMDDTHHmmss')
+}
 
 function get_days(url, name, res) {
   var days = {}
@@ -53,8 +59,8 @@ function get_days(url, name, res) {
       if (data.hasOwnProperty(k)) {
         var ev = data[k]
         if (ev.type == 'VEVENT') {
-          var startMoment = moment(ev.start)
-          var endMoment = moment(ev.end)
+          var startMoment = getDatetime(ev.start)
+          var endMoment = getDatetime(ev.end)
           var key = startMoment.format('YYYY-MM-DD')
 
           if (key in days) {
@@ -79,6 +85,6 @@ var server = app.listen(63203, function () {
   var host = server.address().address
   var port = server.address().port
 
-  console.log('App listening at http://%s:%s', host, port)
+  console.('App listening at http://%s:%s', host, port)
 
 })
