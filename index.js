@@ -53,6 +53,10 @@ function get_days(url, name, res) {
     next.add(1, 'days')
   }
 
+  function get_percentage_on_day(moment, dayTime, dayDuration) {
+    return ((moment.hour() + (moment.minute() / 60) - dayTime) / dayDuration * 100)
+  }
+
 
   ical.fromURL(url, {}, function(err, data) {
     for (var k in data) {
@@ -63,9 +67,13 @@ function get_days(url, name, res) {
           var endMoment = getDatetime(ev.end)
           var key = startMoment.format('YYYY-MM-DD')
 
+          var startTime = 9
+          var endTime = 21
+          var dayDuration = endTime - startTime
+
           if (key in days) {
-            days[key].left = (startMoment.hour() + (startMoment.minute() / 60) - 9) / 9 * 100
-            days[key].right = -((endMoment.hour() + (endMoment.minute() / 60) - 18) / 9 * 100)
+            days[key].left = get_percentage_on_day(startMoment, startTime, dayDuration)
+            days[key].right = -get_percentage_on_day(endMoment, endTime, dayDuration)
 
             days[key].start = startMoment
             days[key].end = endMoment
