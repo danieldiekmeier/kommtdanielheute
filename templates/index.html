@@ -18,7 +18,7 @@
   <div class="limiter box">
     <ul class="days">
       {% for key, day in days %}
-        <li class="day {{ day.moment.format('dd') }}">
+        <li class="day {{ day.moment.format('dd') }} {% if (loop.index == 1 and not day.start and not day.end) %}day-nope{% endif %}">
           <div class="date">
             {% if loop.index == 1 %}
               Heute
@@ -33,6 +33,8 @@
                 {{ day.start.format('HH:mm') }} –
                 {{ day.end.format('HH:mm') }}
               </div>
+            {% elif loop.index == 1 %}
+              <div class="nope">Nope</div>
             {% endif %}
           </div>
 

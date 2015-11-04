@@ -72,7 +72,7 @@ a
 .day
   &:first-child
     font:
-      size: 2em
+      size: 1.75em
 
   &:nth-child(2n)
     background:
@@ -81,11 +81,20 @@ a
   &.Sa, &.Su
     color: #ddd
 
+.day-nope
+  color: #fff
+  background-color: rgba($main, 0.5)
+
+.nope
+  padding: 1em
+
 .date
   display: inline-block
   width: 160px
   float: left
   padding: 1em
+    left: 1rem
+    right: 1rem
 
   border:
     right: 1px solid #ddd
@@ -99,6 +108,8 @@ a
   display: inline-block
 
   padding: 1em
+    left: 1rem
+    right: 1rem
 
   background:
     color: rgba(green, 0.1)
