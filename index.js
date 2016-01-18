@@ -34,11 +34,16 @@ app.get('/:name', function (req, res) {
 
 })
 
-function getDatetime(dateString) {
-  if (dateString.indexOf('":') !== -1) {
-    dateString = dateString.split('":')[1]
+function getDatetime(date) {
+  try {
+    if (date.indexOf('":') !== -1) {
+      date = date.split('":')[1]
+    }
+    return moment(date, 'YYYYMMDDTHHmmss')
+  } catch (e) {
+    return moment(date)
   }
-  return moment(dateString, 'YYYYMMDDTHHmmss')
+
 }
 
 function get_days(url, name, res) {
